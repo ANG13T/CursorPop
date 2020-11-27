@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
+
     <div class="header">
       <h1 class="title">CursorPop</h1>
       <div class="logos">
@@ -21,6 +22,22 @@
     <h1 class="click">click anywhere</h1>
 
     <div class="settings">
+      <h1 class="subtitle"> Settings</h1>
+
+      <h3 class="formText">Particle Size</h3>
+      <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="50" class="slider" id="particleSize">
+      </div>
+
+      <h3 class="formText">Smoothness</h3>
+      <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="80" class="slider" id="particleSmoothness">
+      </div>
+
+      <h3 class="formText">Particle Speed</h3>
+      <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="50" class="slider" id="particleSpeed">
+      </div>
 
     </div>
   </body>

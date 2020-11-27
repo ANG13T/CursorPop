@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Nunito:wght@300&display=swap');
 
-
-
 .explosion {
   position: absolute; 
   width: 600px;
@@ -15,11 +13,7 @@ h1{
 
 .particle {
     position: absolute; 
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    animation: pop 1s reverse forwards; 
-  }
+}
 
 @keyframes pop {
   from {
@@ -39,11 +33,19 @@ h1{
   padding-top: 5rem;
 }
 
+.slider{
+  width: 20rem;
+}
+
 
 .logo{
   margin: 2rem;
   font-size: 2rem;
   color: rgba(139, 147, 161, 0.829);
+}
+
+.formText{
+  margin-top: 2rem;
 }
 
 .logo:hover{
@@ -58,9 +60,21 @@ h1{
   margin: auto;
 }
 
+.settings{
+  margin-top: 20rem;
+  width: 100%;
+  text-align: center;
+}
+
+.subtitle{
+  border-bottom: .3rem solid rgb(192, 42, 185);
+  width: 13%;
+  padding-bottom: 1rem;
+  margin: auto;
+}
+
 html, body {
-  height: 100%;
-  background: #000;
+  background: white;
 }
 .click {
   position: absolute;

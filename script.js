@@ -1,3 +1,7 @@
+let size = 10;
+let smoothness = 80;
+let speed = 1;
+
 // click event listener
 $('body').on('click', function(e) {
     explode(e.pageX, e.pageY);
@@ -25,6 +29,10 @@ $('body').on('click', function(e) {
         elm = $('<div class="particle" style="' +
           'background-color: rgb(' + color + ') ;' +
           'top: ' + y + 'px; ' +
+          'width: ' + size + 'px; ' +
+          'animation: pop ' + speed + 's reverse forwards; ' +
+          'border-radius: ' + smoothness + '%; ' +
+          'height: ' + size + 'px; ' +
           'left: ' + x + 'px"></div>');
   
       if (i == 0) { // no need to add the listener on all generated elements
@@ -41,3 +49,19 @@ $('body').on('click', function(e) {
   function rand(min, max) {
     return Math.floor(Math.random() * (max + 1)) + min;
   }
+
+
+
+  $('#particleSize').bind( "change", function(event, ui) {
+    size = event.target.value / 2;
+    // $("particle").css({"background-color": "yellow", "font-size": "200%"});
+    console.log(event.target.value)
+  });
+
+  $('#particleSmoothness').bind( "change", function(event, ui) {
+    smoothness = event.target.value;
+  });
+
+  $('#particleSpeed').bind( "change", function(event, ui) {
+    speed = event.target.value / 50;
+  });
