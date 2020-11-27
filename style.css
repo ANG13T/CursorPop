@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Nunito:wght@300&display=swap');
+
+
 
 .explosion {
   position: absolute; 
   width: 600px;
   height: 600px;
   pointer-events: none; 
-  
+}
+
+h1{
+  font-family: 'Lato', sans-serif;
 }
 
 .particle {
@@ -26,19 +32,43 @@
   }
 }
 
+.header{
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  padding-top: 5rem;
+}
 
+
+.logo{
+  margin: 2rem;
+  font-size: 2rem;
+  color: rgba(139, 147, 161, 0.829);
+}
+
+.logo:hover{
+  cursor: pointer;
+  color: rgba(109, 32, 119, 0.938);
+  transition: color 1s;
+}
+
+.logos{
+  border-bottom: .5rem solid rgb(144, 42, 192);
+  width: 25%;
+  margin: auto;
+}
 
 html, body {
   height: 100%;
   background: #000;
 }
-h1 {
+.click {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -100%);
   color: #CCC;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: 'Nunito', sans-serif;
   user-select: none;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
