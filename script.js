@@ -1,6 +1,9 @@
 let size = 10;
 let smoothness = 80;
 let speed = 1;
+let colorOne = "";
+let colorTwo = "";
+
 
 // click event listener
 $('body').on('click', function(e) {
@@ -65,3 +68,41 @@ $('body').on('click', function(e) {
   $('#particleSpeed').bind( "change", function(event, ui) {
     speed = event.target.value / 50;
   });
+
+  $('#colorButton1').change(function(event){
+    colorOne = hexToRgb(event.target.value);
+  })
+
+  $('#colorButton2').change(function(event){
+    colorTwo = hexToRgb(event.target.value);
+  })
+
+  $('#randomButton').click(function(event){
+    // alert(colorOne.r + " " + colorTwo.g)
+    console.log(getRandomColor())
+    $('#colorButton1').val(getRandomColor())
+    document.getElementById("colorButton1").value = getRandomColor();
+    document.getElementById("colorButton2").value = getRandomColor();
+  })
+
+  function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+  }
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  function generateColor(color, color2){
+
+  }

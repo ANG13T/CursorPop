@@ -34,14 +34,14 @@ h1{
   transition: none 0s ease 0s;
   margin-left: 1rem;
   margin-right: 1rem;
-  background: rgb(108, 28, 119);
+  background: rgb(219, 214, 214);
 }
 
 .colorscontainer{
+  margin-top: 1rem;
   display: flex;
-  align-items: center;
-  margin: auto;
   width: 40%;
+  margin-left: 38%;
 }
 
 .header{
