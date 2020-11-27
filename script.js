@@ -3,6 +3,8 @@ let smoothness = 80;
 let speed = 1;
 let colorOne = "";
 let colorTwo = "";
+let displayColor = {r: rand(0, 255), g: rand(0, 255), b: rand(0, 255)};
+console.log(displayColor)
 
 
 // click event listener
@@ -27,7 +29,7 @@ $('body').on('click', function(e) {
       // positioning x,y of the particle on the circle (little randomized radius)
       var x = (explosion.width() / 2) + rand(80, 150) * Math.cos(2 * Math.PI * i / rand(particles - 10, particles + 10)),
         y = (explosion.height() / 2) + rand(80, 150) * Math.sin(2 * Math.PI * i / rand(particles - 10, particles + 10)),
-        color = rand(0, 255) + ', ' + rand(0, 255) + ', ' + rand(0, 255), // randomize the color rgb
+        color =  displayColor.r + ', ' + displayColor.g + ', ' + displayColor.b, // randomize the color rgb
           // particle element creation (could be anything other than div)
         elm = $('<div class="particle" style="' +
           'background-color: rgb(' + color + ') ;' +
@@ -71,18 +73,21 @@ $('body').on('click', function(e) {
 
   $('#colorButton1').change(function(event){
     colorOne = hexToRgb(event.target.value);
+    generateColor(hexToRgb(colorOne), hexToRgb(colorTwo));
   })
 
   $('#colorButton2').change(function(event){
     colorTwo = hexToRgb(event.target.value);
+    generateColor(hexToRgb(colorOne), hexToRgb(colorTwo));
   })
 
   $('#randomButton').click(function(event){
     // alert(colorOne.r + " " + colorTwo.g)
-    console.log(getRandomColor())
-    $('#colorButton1').val(getRandomColor())
-    document.getElementById("colorButton1").value = getRandomColor();
-    document.getElementById("colorButton2").value = getRandomColor();
+    let firstColor = getRandomColor();
+    let secondColor = getRandomColor();
+    document.getElementById("colorButton1").value = firstColor;
+    document.getElementById("colorButton2").value = secondColor;
+    generateColor(hexToRgb(firstColor), hexToRgb(secondColor));
   })
 
   function hexToRgb(hex) {
@@ -103,6 +108,32 @@ $('body').on('click', function(e) {
     return color;
   }
 
-  function generateColor(color, color2){
+  function generateColor(color1, color2){
+    let randomRed;
+    let randomBlue;
+    let randomGreen;
 
+    console.log(color1)
+    console.log(color2)
+
+    if(color1.r >= color2.r){
+      randomRed = Math.floor(Math.random() * color1.r) + color2.r;
+    }else{
+      randomRed = Math.floor(Math.random() * color2.r) + color1.r;
+    }
+
+    if(color1.g >= color2.g){
+      randomGreen = Math.floor(Math.random() * color1.g) + color2.g;
+    }else{
+      randomGreen = Math.floor(Math.random() * color2.g) + color1.g;
+    }
+
+    if(color1.b >= color2.b){
+      randomBlue = Math.floor(Math.random() * color1.b) + color2.b;
+    }else{
+      randomBlue = Math.floor(Math.random() * color2.b) + color1.b;
+    }
+
+    displayColor = {r: randomRed, g: randomGreen, b: randomGreen};
+    console.log(displayColor)
   }
