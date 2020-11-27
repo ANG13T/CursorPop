@@ -26,6 +26,24 @@ h1{
   }
 }
 
+.color-button{
+  height: 32px!important;
+  width: 80px!important;
+  border: 2px solid #f1f4f8!important;
+  border-radius: 6px!important;
+  transition: none 0s ease 0s;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background: rgb(108, 28, 119);
+}
+
+.colorscontainer{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 40%;
+}
+
 .header{
   margin: auto;
   width: 100%;
@@ -73,6 +91,7 @@ h1{
   margin: auto;
 }
 
+
 html, body {
   background: white;
 }
@@ -89,3 +108,41 @@ html, body {
   -moz-user-select: none;      /* Firefox */
   cursor: default;
 }
+
+.corner-ribbon{
+  width: 200px;
+  background: #e43;
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+/* Custom styles */
+
+.corner-ribbon.sticky{
+  position: fixed;
+}
+
+.corner-ribbon.shadow{
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+/* Different positions */
+
+.corner-ribbon.top-right{
+  top: 25px;
+  right: -50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+
+/* Colors */
+.corner-ribbon.blue{background: #39d;}
