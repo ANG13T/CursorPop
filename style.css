@@ -68,7 +68,7 @@ h1{
 }
 
 .formText{
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .logo:hover{
@@ -78,7 +78,6 @@ h1{
 }
 
 .logos{
-  border-bottom: .5rem solid rgb(144, 42, 192);
   width: 25%;
   margin: auto;
 }
@@ -90,8 +89,11 @@ h1{
   text-align: center;
 }
 
+.slidecontainer{
+  margin-bottom: 2rem;
+}
+
 .subtitle{
-  border-bottom: .3rem solid rgb(192, 42, 185);
   width: 13%;
   padding-bottom: 1rem;
   margin: auto;
@@ -152,7 +154,7 @@ html, body {
 .bottom{
   padding-top: 1rem;
   padding-left: 1rem;
-  background-color: rgb(184, 106, 194);
+  background-color: rgb(144, 42, 192);
   bottom: 0;
   height: 4rem;
 }
@@ -171,6 +173,106 @@ html, body {
   color: lightblue;
 }
 
+
 /* Colors */
 .corner-ribbon.blue{background: #39d;}
 
+
+@media only screen and (max-width: 600px) {
+  .logos{
+   display: none;
+  }
+
+  .click{
+    top: 35%;
+  }
+
+  .subtitle{
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .subtitle{
+    width: 35%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+
+  .logos{
+    width: 50%;
+  }
+
+  .subtitle{
+    width: 35%;
+  }
+  
+}
+
+@media only screen and (max-width: 1200px) {
+  .logos{
+    width: 40%;
+  }
+
+  .subtitle{
+    width: 35%;
+  }
+}
+
+
+.circle {
+  position: absolute;
+  width: 500px;
+  height: 20px;
+  background: radial-gradient(16px, transparent, transparent 4px, rgb(144, 42, 192) 4px, rgb(144, 42, 192) 10px, transparent 11px);
+  background-size: 30px 40px;
+}
+
+.circle2 {
+  /* Offset to make squigglies line up */
+  top: 20px;
+  left: 15px;
+  background-position: 0px -20px;
+}
+
+
+.holder {
+  position: relative;
+  width: 300px;
+  height: 50px;
+}
+.clip {
+  /* Clip edges, as some of the lines don't terminate nicely. */
+  overflow: hidden;
+  margin: auto;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
