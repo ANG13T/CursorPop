@@ -7,6 +7,23 @@
   pointer-events: none; 
 }
 
+.mode-toggle{
+  font-size: 2rem;
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+  background-color: rgb(211, 208, 208);
+  padding-left: .5rem;
+  padding-right: .5rem;
+  border: 2px solid rgb(211, 208, 208);
+  color: rgb(78, 13, 78);
+  border-radius: 4px;
+}
+
+.mode-toggle:hover{
+  cursor: pointer;
+}
+
 h1{
   font-family: 'Lato', sans-serif;
 }
@@ -190,11 +207,19 @@ html, body {
   .subtitle{
     width: 30%;
   }
+
+  .mode-toggle{
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 800px) {
   .subtitle{
     width: 35%;
+  }
+
+  .mode-toggle{
+    display: none;
   }
 }
 
