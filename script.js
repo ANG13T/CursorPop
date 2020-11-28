@@ -4,7 +4,6 @@ let speed = 1;
 let particleAmount = 15;
 let colorOne = hexToRgb("#FF0000");
 let colorTwo = hexToRgb("#00FF00");
-let colorVariation = true;
 let solidColor = false;
 let displayColor = {r: rand(0, 255), g: rand(0, 255), b: rand(0, 255)};
 $(".solidColorContainer").hide()
@@ -30,7 +29,7 @@ $('body').on('click', function(e) {
     explosion.css('top', y - explosion.height() / 2);
   
     for (var i = 0; i < particles; i++) {
-      if(colorVariation){
+      if(!solidColor){
         generateColor(colorOne, colorTwo)
       }
       
@@ -92,6 +91,10 @@ $('body').on('click', function(e) {
     generateColor(hexToRgb(colorOne), hexToRgb(colorTwo));
   })
 
+  $('#solidColorButton').change(function(event){
+   displayColor = hexToRgb(event.target.value);
+  })
+
   $('#randomButton').click(function(event){
     // alert(colorOne.r + " " + colorTwo.g)
     let firstColor = getRandomColor();
@@ -104,8 +107,15 @@ $('body').on('click', function(e) {
   })
 
   $('#solidColorBox').click(function(event){
+    solidColor = !solidColor;
     $('.colorscontainer').toggle()
     $(".solidColorContainer").toggle()
+  })
+
+  $('#solidRandomButton').click(function(event){
+    let randomColor = getRandomColor();
+    displayColor = hexToRgb(randomColor);
+    $("#solidColorButton").val(randomColor);
   })
 
   function hexToRgb(hex) {
