@@ -37,12 +37,17 @@ h1{
   background: rgb(219, 214, 214);
 }
 
-.colorscontainer{
+.colorscontainer, .solidColorContainer{
   margin-top: 1rem;
   display: flex;
   width: 40%;
   margin-left: 38%;
 }
+
+.solidColorContainer{
+  margin-left: 42%;
+}
+
 
 .header{
   margin: auto;

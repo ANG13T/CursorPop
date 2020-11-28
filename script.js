@@ -5,8 +5,9 @@ let particleAmount = 15;
 let colorOne = hexToRgb("#FF0000");
 let colorTwo = hexToRgb("#00FF00");
 let colorVariation = true;
+let solidColor = false;
 let displayColor = {r: rand(0, 255), g: rand(0, 255), b: rand(0, 255)};
-
+$(".solidColorContainer").hide()
 
 // click event listener
 $('body').on('click', function(e) {
@@ -100,6 +101,11 @@ $('body').on('click', function(e) {
     colorOne = hexToRgb(firstColor);
     colorTwo = hexToRgb(secondColor);
     generateColor(colorOne, colorTwo);
+  })
+
+  $('#solidColorBox').click(function(event){
+    $('.colorscontainer').toggle()
+    $(".solidColorContainer").toggle()
   })
 
   function hexToRgb(hex) {
