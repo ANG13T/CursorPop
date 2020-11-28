@@ -1,10 +1,11 @@
 let size = 10;
 let smoothness = 80;
 let speed = 1;
-let colorOne = "";
-let colorTwo = "";
+let particleAmount = 15;
+let colorOne = hexToRgb("#FF0000");
+let colorTwo = hexToRgb("#00FF00");
+let colorVariation = true;
 let displayColor = {r: rand(0, 255), g: rand(0, 255), b: rand(0, 255)};
-console.log(displayColor)
 
 
 // click event listener
@@ -14,18 +15,24 @@ $('body').on('click', function(e) {
   
   // explosion construction
   function explode(x, y) {
-    var particles = 15,
+    var particles = particleAmount,
       // explosion container and its reference to be able to delete it on animation end
       explosion = $('<div class="explosion"></div>');
   
     // put the explosion container into the body to be able to get it's size
     $('body').append(explosion);
+    console.log("colorOne: " + `(${colorOne.r}, ${colorOne.g}, ${colorTwo.b})`);
+    console.log("colorTwo: " + `(${colorTwo.r}, ${colorTwo.g}, ${colorTwo.b})`);
   
     // position the container to be centered on click
     explosion.css('left', x - explosion.width() / 2);
     explosion.css('top', y - explosion.height() / 2);
   
     for (var i = 0; i < particles; i++) {
+      if(colorVariation){
+        generateColor(colorOne, colorTwo)
+      }
+      
       // positioning x,y of the particle on the circle (little randomized radius)
       var x = (explosion.width() / 2) + rand(80, 150) * Math.cos(2 * Math.PI * i / rand(particles - 10, particles + 10)),
         y = (explosion.height() / 2) + rand(80, 150) * Math.sin(2 * Math.PI * i / rand(particles - 10, particles + 10)),
@@ -60,7 +67,10 @@ $('body').on('click', function(e) {
   $('#particleSize').bind( "change", function(event, ui) {
     size = event.target.value / 2;
     // $("particle").css({"background-color": "yellow", "font-size": "200%"});
-    console.log(event.target.value)
+  });
+
+  $('#particleAmount').bind("change", function(event, ui) {
+    particleAmount =  Math.round(event.target.value);
   });
 
   $('#particleSmoothness').bind( "change", function(event, ui) {
@@ -87,7 +97,9 @@ $('body').on('click', function(e) {
     let secondColor = getRandomColor();
     document.getElementById("colorButton1").value = firstColor;
     document.getElementById("colorButton2").value = secondColor;
-    generateColor(hexToRgb(firstColor), hexToRgb(secondColor));
+    colorOne = hexToRgb(firstColor);
+    colorTwo = hexToRgb(secondColor);
+    generateColor(colorOne, colorTwo);
   })
 
   function hexToRgb(hex) {
@@ -113,8 +125,10 @@ $('body').on('click', function(e) {
     let randomBlue;
     let randomGreen;
 
-    console.log(color1)
-    console.log(color2)
+    if(!color1 || !colorTwo){
+      console.log("NOO")
+      return;
+    }
 
     if(color1.r >= color2.r){
       randomRed = Math.floor(Math.random() * color1.r) + color2.r;
@@ -135,5 +149,4 @@ $('body').on('click', function(e) {
     }
 
     displayColor = {r: randomRed, g: randomGreen, b: randomGreen};
-    console.log(displayColor)
   }
