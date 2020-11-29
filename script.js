@@ -8,20 +8,20 @@ let solidColor = false;
 let displayColor = {r: rand(0, 255), g: rand(0, 255), b: rand(0, 255)};
 $(".solidColorContainer").hide()
 
-let cursorPop = cursorpop().pop();
+let cursorPop = cursorpop();
 
-console.log(cursorPop)
 
 // click event listener
 $('body').on('click', function(e) {
-    explode(e.pageX, e.pageY);
+    cursorPop.pop(e.pageX, e.pageY)
+    // explode(e.pageX, e.pageY);
   })
   
   // explosion construction
   function explode(x, y) {
-    var particles = particleAmount,
+    var particles = particleAmount;
       // explosion container and its reference to be able to delete it on animation end
-      explosion = $('<div class="explosion"></div>');
+    explosion = $('<div class="explosion"></div>');
   
     // put the explosion container into the body to be able to get it's size
     $('body').append(explosion);
