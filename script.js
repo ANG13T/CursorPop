@@ -8,6 +8,10 @@ let solidColor = false;
 let displayColor = {r: rand(0, 255), g: rand(0, 255), b: rand(0, 255)};
 $(".solidColorContainer").hide()
 
+let cursorPop = cursorpop().pop();
+
+console.log(cursorPop)
+
 // click event listener
 $('body').on('click', function(e) {
     explode(e.pageX, e.pageY);
@@ -96,7 +100,6 @@ $('body').on('click', function(e) {
   })
 
   $('#randomButton').click(function(event){
-    // alert(colorOne.r + " " + colorTwo.g)
     let firstColor = getRandomColor();
     let secondColor = getRandomColor();
     document.getElementById("colorButton1").value = firstColor;

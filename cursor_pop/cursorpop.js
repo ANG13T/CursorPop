@@ -2,16 +2,19 @@
 
 if (typeof module !== 'undefined') module.exports = cursorpop;
 
-function cursorpop(div){
-    if (!(this instanceof cursorpop)) return new cursorpop(div);
+function cursorpop(){
+    let body = 'body';
+    if (!(this instanceof cursorpop)) return new cursorpop();
 
-    this._div = div = typeof div === 'string' ? document.getElementById(div) : div;
+    this._body = body = typeof body === 'string' ? document.getElementsByTagName(body)[0] : body;
 
-    this._width = div.width;
-    this._height = div.height;
+    this._width = body.width;
+    this._height = body.height;
 
     this._max = 1;
     this._data = [];
+
+    console.log("starting this up")
 }
 
 cursorpop.prototype = {
@@ -31,12 +34,12 @@ cursorpop.prototype = {
 
     gradient: function (grad) {
         // create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one
-        var div = this._createCanvas(),
-            ctx = div.getContext('2d'),
+        var body = this._createCanvas(),
+            ctx = body.getContext('2d'),
             gradient = ctx.createLinearGradient(0, 0, 0, 256);
 
-        div.width = 1;
-        div.height = 256;
+        body.width = 1;
+        body.height = 256;
 
         for (var i in grad) {
             gradient.addColorStop(+i, grad[i]);
@@ -74,15 +77,16 @@ cursorpop.prototype = {
     },
 
     pop: function(){
+        return "pop";
     },
 
     _createCanvas: function () {
         if (typeof document !== 'undefined') {
-            return document.createElement('div');
+            return document.createElement('body');
         } else {
-            // create a new div instance in node.js
-            // the div class needs to have a default constructor without any parameter
-            return new this._div.constructor();
+            // create a new body instance in node.js
+            // the body class needs to have a default constructor without any parameter
+            return new this._body.constructor();
         }
     }
 };
