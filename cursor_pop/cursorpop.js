@@ -81,11 +81,107 @@ cursorpop.prototype = {
     },
 
     set: function(amount, size, smoothness, colors, speed){
+        this.amount(amount);
+        this.size(size);
+        this.smoothness(smoothness);
+        this.speed(speed);
+        this.color(colors);
+    },
+
+    amount: function(amount){
+        if(!parseInt(amount) || amount == null){
+            console.log("INVALID value for amount: "+ amount);
+            return;
+        }
+
+        if(amount < 1){
+            console.log("Value for amount must be greater than 0: "+ amount);
+            return;
+        }
+
+        if(amount > 100){
+            console.log("Value for amount must be less than 100: "+ amount);
+            return;
+        }
+
         this.defaultParticleAmount = amount;
+    },
+
+    size: function(size){
+        if(!parseInt(size) || size == null){
+            console.log("INVALID value for size: "+ size);
+            return;
+        }
+
+        if(size < 1){
+            console.log("Value for size must be greater than 0: "+ size);
+            return;
+        }
+
+        if(size > 100){
+            console.log("Value for size must be less than 100: "+ size);
+            return;
+        }
         this.defaultParticleSize = size;
-        this.defaultParticleSmoothness = smoothness;
+    },
+
+    smoothness: function(smooth){
+        if(!parseInt(smooth) || smooth == null){
+            console.log("INVALID value for smoothness: "+ smooth);
+            return;
+        }
+
+        if(smooth < 1){
+            console.log("Value for smoothness must be greater than 0: "+ smooth);
+            return;
+        }
+
+        if(smooth > 100){
+            console.log("Value for smoothness must be less than 100: "+ smooth);
+            return;
+        }
+
+        this.defaultParticleSmoothness = smooth;
+    },
+
+    speed: function(speed){
+        if(!parseFloat(speed) || speed == null){
+            console.log("INVALID value for speed: "+ speed);
+            return;
+        }
+
+        if(speed < 0){
+            console.log("Value for speed must be greater than 0: "+ speed);
+            return;
+        }
+
+        if(speed > 100){
+            console.log("Value for speed must be less than 100: "+ speed);
+            return;
+        }
+
         this.defaultParticleSpeed = speed;
-        this.defaultColors = colors;
+    },
+
+    color: function(colors){
+        if(speed == null || colors.length == 0){
+            console.log("INVALID value for colors: "+ colors);
+            return;
+        }
+
+        if(colors.length > 2){
+            console.log("Length of colors must be less than 3: "+ colors.length);
+            return;
+        }
+
+        if(colors.length == 1){
+            console.log("1")
+            displayColor = hexToRgb(colors[0]);
+        }else{
+            console.log("more")
+            generateColor(hexToRgb(colors[0]), hexToRgb(colors[1]));
+        }
+        
     },
 
     pop: function(x, y){
@@ -112,7 +208,7 @@ cursorpop.prototype = {
             var color =  this.displayColor.r + ', ' + this.displayColor.g + ', ' + this.displayColor.b; // randomize the color rgb
                 // particle element creation (could be anything other than div)
 
-              let particleElm = document.createElement('div');
+            let particleElm = document.createElement('div');
               particleElm.className = "particle";
               particleElm.style.backgroundColor = `rgb(${color})`;
               particleElm.style.top = `${positionY}px`;
@@ -124,9 +220,21 @@ cursorpop.prototype = {
         
             if (i == 0) { // no need to add the listener on all generated elements
               // css3 animation end detection
-              particleElm.addEventListener('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-                explosion.remove(); // remove this explosion container when animation ended
+              particleElm.addEventListener('webkitAnimationEnd', function(e) {
+                   explosion.remove(); // remove this explosion container when animation ended
               });
+
+              particleElm.addEventListener('oanimationend', function(e) {
+                 explosion.remove(); // remove this explosion container when animation ended
+              });
+
+              particleElm.addEventListener('msAnimationEnd', function(e) {
+                 explosion.remove(); // remove this explosion container when animation ended
+              });
+
+              particleElm.addEventListener('animationend', function(e) {
+                 explosion.remove(); // remove this explosion container when animation ended
+              });    
             }
             explosion.appendChild(particleElm);
           }
@@ -168,6 +276,15 @@ cursorpop.prototype = {
         }
     
         this.displayColor = {r: randomRed, g: randomGreen, b: randomGreen};
+      },
+
+      hexToRgb: function(hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16)
+        } : null;
       },
 
     _createCanvas: function () {

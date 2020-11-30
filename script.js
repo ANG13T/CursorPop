@@ -15,7 +15,7 @@ let cursorPop = cursorpop();
 $('body').on('click', function(e) {
     cursorPop.pop(e.pageX, e.pageY)
     // explode(e.pageX, e.pageY);
-  })
+})
   
   // explosion construction
   function explode(x, y) {
@@ -57,6 +57,7 @@ $('body').on('click', function(e) {
       if (i == 0) { // no need to add the listener on all generated elements
         // css3 animation end detection
         elm.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+          console.log("endede")
           explosion.remove(); // remove this explosion container when animation ended
         });
       }
@@ -72,34 +73,38 @@ $('body').on('click', function(e) {
 
 
   $('#particleSize').bind( "change", function(event, ui) {
-    size = event.target.value / 2;
+      size = event.target.value / 2;
+      cursorPop.size(size);
     // $("particle").css({"background-color": "yellow", "font-size": "200%"});
   });
 
   $('#particleAmount').bind("change", function(event, ui) {
     particleAmount =  Math.round(event.target.value);
+    cursorPop.amount(particleAmount);
   });
 
   $('#particleSmoothness').bind( "change", function(event, ui) {
     smoothness = event.target.value;
+    cursorPop.smoothness(smoothness);
   });
 
   $('#particleSpeed').bind( "change", function(event, ui) {
     speed = event.target.value / 50;
+    cursorPop.speed(speed);
   });
 
   $('#colorButton1').change(function(event){
-    colorOne = hexToRgb(event.target.value);
-    generateColor(hexToRgb(colorOne), hexToRgb(colorTwo));
+    colorOne = event.target.value;
+    cursorPop.color([event.target.value, colorTwo]);
   })
 
   $('#colorButton2').change(function(event){
-    colorTwo = hexToRgb(event.target.value);
-    generateColor(hexToRgb(colorOne), hexToRgb(colorTwo));
+    colorTwo = event.target.value;
+    cursorPop.color([colorOne, event.target.value]);
   })
 
   $('#solidColorButton').change(function(event){
-   displayColor = hexToRgb(event.target.value);
+   cursorPop.color(event.target.value);
   })
 
   $('#randomButton').click(function(event){
@@ -107,9 +112,9 @@ $('body').on('click', function(e) {
     let secondColor = getRandomColor();
     document.getElementById("colorButton1").value = firstColor;
     document.getElementById("colorButton2").value = secondColor;
-    colorOne = hexToRgb(firstColor);
-    colorTwo = hexToRgb(secondColor);
-    generateColor(colorOne, colorTwo);
+    colorOne = firstColor;
+    colorTwo = secondColor;
+    cursorPop.color([colorOne, colorTwo]);
   })
 
   $('#solidColorBox').click(function(event){
