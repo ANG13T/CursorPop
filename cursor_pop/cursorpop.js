@@ -89,10 +89,17 @@ cursorpop.prototype = {
     },
 
     pop: function(x, y){
+        console.log(x);
+        console.log(y);
+
         // this._body.innerHTML = '<h1>hoiiiii</h1>';
         let explosion = document.createElement("div");
-        explosion.style.left =  x - this.defaultParticleSize / 2;
-        explosion.style.top = y - this.defaultParticleSize / 2;
+        explosion.style.width = "600px";
+        explosion.style.height = "600px";
+        explosion.style.pointerEvents = "none";
+        explosion.style.position = "absolute";
+        explosion.style.left = x - 300 + 'px';
+        explosion.style.top = y - 300 + 'px';
 
         for (var i = 0; i < this.defaultParticleAmount; i++) {
             if(!this.particleSolidColor){
@@ -100,20 +107,20 @@ cursorpop.prototype = {
             }
             
             // positioning x,y of the particle on the circle (little randomized radius)
-            var x = (this.defaultParticleSize / 2) + this.rand(80, 150) * Math.cos(2 * Math.PI * i / this.rand(this.defaultParticleAmount - 10, this.defaultParticleAmount + 10)),
-              y = (this.defaultParticleSize / 2) + this.rand(80, 150) * Math.sin(2 * Math.PI * i / this.rand(this.defaultParticleAmount - 10, this.defaultParticleAmount + 10)),
-              color =  this.displayColor.r + ', ' + this.displayColor.g + ', ' + this.displayColor.b; // randomize the color rgb
+            var positionX = (300) + this.rand(80, 150) * Math.cos(2 * Math.PI * i / this.rand(this.defaultParticleAmount - 10, this.defaultParticleAmount + 10));
+            var positionY = (300) + this.rand(80, 150) * Math.sin(2 * Math.PI * i / this.rand(this.defaultParticleAmount - 10, this.defaultParticleAmount + 10));
+            var color =  this.displayColor.r + ', ' + this.displayColor.g + ', ' + this.displayColor.b; // randomize the color rgb
                 // particle element creation (could be anything other than div)
 
               let particleElm = document.createElement('div');
               particleElm.className = "particle";
               particleElm.style.backgroundColor = `rgb(${color})`;
-              particleElm.style.top = `${y}px`;
+              particleElm.style.top = `${positionY}px`;
               particleElm.style.width = `${this.defaultParticleSize}px`;
               particleElm.style.animation = `pop ${this.defaultParticleSpeed}s reverse forwards`;
               particleElm.style.borderRadius = `${this.defaultParticleSmoothness}%`;
               particleElm.style.height = `${this.defaultParticleSize}px`;
-              particleElm.style.left = `${x}px`;
+              particleElm.style.left = `${positionX}px`;
         
             if (i == 0) { // no need to add the listener on all generated elements
               // css3 animation end detection

@@ -36,6 +36,9 @@ $('body').on('click', function(e) {
       if(!solidColor){
         generateColor(colorOne, colorTwo)
       }
+
+      console.log(explosion.width())
+      console.log(explosion.height())
       
       // positioning x,y of the particle on the circle (little randomized radius)
       var x = (explosion.width() / 2) + rand(80, 150) * Math.cos(2 * Math.PI * i / rand(particles - 10, particles + 10)),
