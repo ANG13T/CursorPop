@@ -2,8 +2,8 @@ let size = 10;
 let smoothness = 80;
 let speed = 1;
 let particleAmount = 15;
-let colorOne = hexToRgb("#FF0000");
-let colorTwo = hexToRgb("#00FF00");
+let colorOne = "#FF0000";
+let colorTwo = "#00FF00";
 let solidColor = false;
 let displayColor = {r: rand(0, 255), g: rand(0, 255), b: rand(0, 255)};
 $(".solidColorContainer").hide()
@@ -75,18 +75,10 @@ $('body').on('click', function(e) {
 
   $('#solidRandomButton').click(function(event){
     let randomColor = getRandomColor();
-    displayColor = hexToRgb(randomColor);
+    displayColor = randomColor;
     $("#solidColorButton").val(randomColor);
   })
 
-  function hexToRgb(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16)
-    } : null;
-  }
 
   function getRandomColor() {
     var letters = '0123456789ABCDEF';

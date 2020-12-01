@@ -190,11 +190,12 @@ cursorpop.prototype = {
         if(colors.length == 1){
             console.log("1")
             this.particleSolidColor = true;
-            console.log(this.hexToRgb(colors[0]));
             displayColor = this.hexToRgb(colors[0]);
         }else{
             console.log("more")
             this.particleSolidColor = false;
+            console.log(colors[0]);
+            console.log(colors[1]);
             generateColor(this.hexToRgb(colors[0]), this.hexToRgb(colors[1]));
         }
         
@@ -212,7 +213,7 @@ cursorpop.prototype = {
 
         for (var i = 0; i < this.defaultParticleAmount; i++) {
             if(!this.particleSolidColor){
-              this.generateColor(colorOne, colorTwo)
+              this.generateColor(this.defaultColors[0], this.defaultColors[1])
             }
             
             // positioning x,y of the particle on the circle (little randomized radius)
@@ -268,6 +269,16 @@ cursorpop.prototype = {
         if(!color1 || !colorTwo){
           console.log("NOO")
           return;
+        }
+
+        if(color1.r == null || color1.b == null || color1.g == null){
+            console.log("INVALID input for generateColor: " + color1);
+            return;
+        }
+
+        if(color2.r == null || color2.b == null || color2.g == null){
+            console.log("INVALID input for generateColor: " + color2);
+            return;
         }
     
         if(color1.r >= color2.r){
