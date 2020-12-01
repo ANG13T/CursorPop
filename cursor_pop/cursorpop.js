@@ -163,7 +163,20 @@ cursorpop.prototype = {
         this.defaultParticleSpeed = speed;
     },
 
+    solidColor: function(color){
+        if(typeof color != 'boolean'){
+            console.log("INVALID input for solidColor: " + color)
+            return;
+        }
+
+        this.particleSolidColor = color;
+    },
+
     color: function(colors){
+        if(typeof colors == 'string'){
+            colors = [colors]
+        }
+
         if(speed == null || colors.length == 0){
             console.log("INVALID value for colors: "+ colors);
             return;
@@ -176,18 +189,18 @@ cursorpop.prototype = {
 
         if(colors.length == 1){
             console.log("1")
-            displayColor = hexToRgb(colors[0]);
+            this.particleSolidColor = true;
+            console.log(this.hexToRgb(colors[0]));
+            displayColor = this.hexToRgb(colors[0]);
         }else{
             console.log("more")
-            generateColor(hexToRgb(colors[0]), hexToRgb(colors[1]));
+            this.particleSolidColor = false;
+            generateColor(this.hexToRgb(colors[0]), this.hexToRgb(colors[1]));
         }
         
     },
 
     pop: function(x, y){
-        console.log(x);
-        console.log(y);
-
         // this._body.innerHTML = '<h1>hoiiiii</h1>';
         let explosion = document.createElement("div");
         explosion.style.width = "600px";
