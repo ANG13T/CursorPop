@@ -25,7 +25,6 @@ $('body').on('click', function(e) {
   $('#particleSize').bind( "change", function(event, ui) {
       size = event.target.value / 2;
       cursorPop.size(size);
-    // $("particle").css({"background-color": "yellow", "font-size": "200%"});
   });
 
   $('#particleAmount').bind("change", function(event, ui) {
@@ -79,7 +78,6 @@ $('body').on('click', function(e) {
     $("#solidColorButton").val(randomColor);
   })
 
-
   function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -89,33 +87,3 @@ $('body').on('click', function(e) {
     return color;
   }
 
-  function generateColor(color1, color2){
-    let randomRed;
-    let randomBlue;
-    let randomGreen;
-
-    if(!color1 || !colorTwo){
-      console.log("NOO")
-      return;
-    }
-
-    if(color1.r >= color2.r){
-      randomRed = Math.floor(Math.random() * color1.r) + color2.r;
-    }else{
-      randomRed = Math.floor(Math.random() * color2.r) + color1.r;
-    }
-
-    if(color1.g >= color2.g){
-      randomGreen = Math.floor(Math.random() * color1.g) + color2.g;
-    }else{
-      randomGreen = Math.floor(Math.random() * color2.g) + color1.g;
-    }
-
-    if(color1.b >= color2.b){
-      randomBlue = Math.floor(Math.random() * color1.b) + color2.b;
-    }else{
-      randomBlue = Math.floor(Math.random() * color2.b) + color1.b;
-    }
-
-    displayColor = {r: randomRed, g: randomGreen, b: randomGreen};
-  }
