@@ -5,17 +5,42 @@ let particleAmount = 15;
 let colorOne = "#FF0000";
 let colorTwo = "#00FF00";
 let solidColor = false;
+let darkMode = false;
 let displayColor = {r: rand(0, 255), g: rand(0, 255), b: rand(0, 255)};
 $(".solidColorContainer").hide()
 
 let cursorPop = cursorpop();
 
+//Toggle from dark and light mode
+$('#mode-toggle').on('click', function(e){
+  darkMode = !darkMode;
+  switchMode();
+})
+
+function switchMode(){
+  if(darkMode){
+    $('body').addClass("dark-mode");
+    $('h1').addClass("dark-mode-text");
+    $('h3').addClass("dark-mode-text");
+    $('span').addClass("dark-mode-text");
+    $('.mode-toggle').addClass("dark-mode-button");
+    $('#ribbon').addClass("dark-mode-ribbon");
+    $('#ribbon').text("Dark Mode");
+  }else{
+    $('body').removeClass("dark-mode");
+    $('h1').removeClass("dark-mode-text");
+    $('h3').removeClass("dark-mode-text");
+    $('span').removeClass("dark-mode-text");
+    $('.mode-toggle').removeClass("dark-mode-button");
+    $('#ribbon').removeClass("dark-mode-ribbon");
+    $('#ribbon').text("Light Mode");
+  }
+}
 
 // click event listener
 $('body').on('click', function(e) {
     cursorPop.pop(e.pageX, e.pageY)
 })
-  
   
   // get random number between min and max value
   function rand(min, max) {
