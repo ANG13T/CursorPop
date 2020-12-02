@@ -243,6 +243,18 @@ html, body {
   .mode-toggle{
     display: none;
   }
+
+  .top{
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+
+  .top{
+    width: 55%;
+  }
+  
 }
 
 @media only screen and (max-width: 1000px) {
@@ -254,6 +266,10 @@ html, body {
   .subtitle{
     width: 35%;
   }
+
+  .top{
+    width: 45%;
+  }
   
 }
 
@@ -264,6 +280,10 @@ html, body {
 
   .subtitle{
     width: 35%;
+  }
+
+  .top{
+    width: 40%;
   }
 }
 

@@ -26,6 +26,8 @@ function switchMode(){
     $('.mode-toggle').addClass("dark-mode-button");
     $('#ribbon').addClass("dark-mode-ribbon");
     $('#ribbon').text("Dark Mode");
+    $('#mode-icon').removeClass("fa-sun");
+    $('#mode-icon').addClass("fa-moon");
   }else{
     $('body').removeClass("dark-mode");
     $('h1').removeClass("dark-mode-text");
@@ -34,6 +36,8 @@ function switchMode(){
     $('.mode-toggle').removeClass("dark-mode-button");
     $('#ribbon').removeClass("dark-mode-ribbon");
     $('#ribbon').text("Light Mode");
+    $('#mode-icon').removeClass("fa-moon");
+    $('#mode-icon').addClass("fa-sun");
   }
 }
 
