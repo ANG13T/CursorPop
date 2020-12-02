@@ -195,7 +195,7 @@ cursorpop.prototype = {
             this.particleSolidColor = false;
             console.log(colors[0]);
             console.log(colors[1]);
-            this.generateColor(this.hexToRgb(colors[0]), this.hexToRgb(colors[1]));
+            this.defaultColors = [this.hexToRgb(colors[0]), this.hexToRgb(colors[1])];
         }
         
     },
@@ -298,7 +298,7 @@ cursorpop.prototype = {
           randomBlue = Math.floor(Math.random() * color2.b) + color1.b;
         }
     
-        this.displayColor = {r: randomRed, g: randomGreen, b: randomGreen};
+        this.displayColor = {r: randomRed, g: randomGreen, b: randomBlue};
       },
 
       hexToRgb: function(hex) {
