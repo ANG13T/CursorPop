@@ -177,8 +177,14 @@ cursorpop.prototype = {
             colors = [colors]
         }
 
+        for(let color of colors){
+            if(color == null || !this.isValidHex(color)){
+                console.log("INVALID argument for color: " + color)
+            }
+        }
+
         if(speed == null || colors.length == 0){
-            console.log("INVALID value for colors: "+ colors);
+            console.log("INVALID value for color: "+ colors);
             return;
         }
 
@@ -191,7 +197,6 @@ cursorpop.prototype = {
             this.particleSolidColor = true;
             this.displayColor = this.hexToRgb(colors[0]);
         }else{
-            console.log("more")
             this.particleSolidColor = false;
             console.log(colors[0]);
             console.log(colors[1]);
@@ -201,7 +206,6 @@ cursorpop.prototype = {
     },
 
     pop: function(x, y){
-        // this._body.innerHTML = '<h1>hoiiiii</h1>';
         let explosion = document.createElement("div");
         explosion.style.width = "600px";
         explosion.style.height = "600px";
@@ -219,7 +223,6 @@ cursorpop.prototype = {
             var positionX = (300) + this.rand(80, 150) * Math.cos(2 * Math.PI * i / this.rand(this.defaultParticleAmount - 10, this.defaultParticleAmount + 10));
             var positionY = (300) + this.rand(80, 150) * Math.sin(2 * Math.PI * i / this.rand(this.defaultParticleAmount - 10, this.defaultParticleAmount + 10));
             var color =  this.displayColor.r + ', ' + this.displayColor.g + ', ' + this.displayColor.b; // randomize the color rgb
-                // particle element creation (could be anything other than div)
 
             let particleElm = document.createElement('div');
               particleElm.className = "particle";
@@ -264,21 +267,6 @@ cursorpop.prototype = {
         let randomRed;
         let randomBlue;
         let randomGreen;
-    
-        if(!color1 || !colorTwo){
-          console.log("NOO")
-          return;
-        }
-
-        if(color1.r == null || color1.b == null || color1.g == null){
-            console.log("INVALID input for generateColor: " + color1);
-            return;
-        }
-
-        if(color2.r == null || color2.b == null || color2.g == null){
-            console.log("INVALID input for generateColor: " + color2);
-            return;
-        }
     
         if(color1.r >= color2.r){
           randomRed = Math.floor(Math.random() * color1.r) + color2.r;
