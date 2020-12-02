@@ -188,9 +188,8 @@ cursorpop.prototype = {
         }
 
         if(colors.length == 1){
-            console.log("1")
             this.particleSolidColor = true;
-            displayColor = this.hexToRgb(colors[0]);
+            this.displayColor = this.hexToRgb(colors[0]);
         }else{
             console.log("more")
             this.particleSolidColor = false;
