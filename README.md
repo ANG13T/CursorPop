@@ -38,25 +38,25 @@ cursorPop.pop(x, y);
 
 ```js
 // set all parameters
-heat.set(amount, size, smoothness, colors, speed);
+cursorPop.set(amount, size, smoothness, colors, speed);
 
 // set particles to solid color
-heat.color(color);
+cursorPop.color(color);
 
 // set particles to colors within color range (colors array)
-heat.color(colors);
+cursorPop.color(colors);
 
 // set smoothness of particles
-heat.smoothness(smoothness);
+cursorPop.smoothness(smoothness);
 
 // set speed of particles
-heat.speed(speed);
+cursorPop.speed(speed);
 
 // set size of particles
-heat.size(size);
+cursorPop.size(size);
 
 //set amount of particles
-heat.amount(amount);
+cursorPop.amount(amount);
 ```
 
 ## Get involved
