@@ -101,6 +101,7 @@ $('body').on('click', function(e) {
     let randomColor = getRandomColor();
     displayColor = randomColor;
     $("#solidColorButton").val(randomColor);
+    cursorPop.color(randomColor)
   })
 
   function getRandomColor() {

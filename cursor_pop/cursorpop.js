@@ -195,7 +195,7 @@ cursorpop.prototype = {
             this.particleSolidColor = false;
             console.log(colors[0]);
             console.log(colors[1]);
-            generateColor(this.hexToRgb(colors[0]), this.hexToRgb(colors[1]));
+            this.generateColor(this.hexToRgb(colors[0]), this.hexToRgb(colors[1]));
         }
         
     },
@@ -207,8 +207,8 @@ cursorpop.prototype = {
         explosion.style.height = "600px";
         explosion.style.pointerEvents = "none";
         explosion.style.position = "absolute";
-        explosion.style.left = x - 300 + 'px';
-        explosion.style.top = y - 300 + 'px';
+        explosion.style.left = x - 305 + 'px';
+        explosion.style.top = y - 335 + 'px';
 
         for (var i = 0; i < this.defaultParticleAmount; i++) {
             if(!this.particleSolidColor){
