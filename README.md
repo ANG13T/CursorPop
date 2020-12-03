@@ -2,7 +2,32 @@
 
 A simple, lightweight JS library for making custom cursor particles.
 
+## Installation
+
+```
+npm i cursorpop
+```
+
 ## Setup
+
+Example HTML template
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Template</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Testing CursorPop</h1>
+    <script src="./node_modules/cursorpop/cursorpop.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+```
 
 ```
 let cursorPop = cursorpop();
