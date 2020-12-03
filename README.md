@@ -28,6 +28,7 @@ Example HTML template
 </body>
 </html>
 ```
+JS setup
 
 ```
 let cursorPop = cursorpop();
