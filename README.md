@@ -2,6 +2,10 @@
 
 A simple, lightweight JS library for making custom cursor particles.
 
+## Website
+
+[angelina-tsuboi.github.io/CursorPop!](http://www.easyelementfinder.com/CursorPop/)
+
 ## Installation
 
 ```
@@ -92,3 +96,9 @@ Please have a look at the [contribution guidelines](CONTRIBUTE.md) before submit
 ## Questions?
 
 Feel free to email us any questions! Our contact info is on the CursorPop website.
+
+## License
+This project is licensed under [MIT](https://opensource.org/licenses/MIT). Please read the [LICENSE](https://github.com/angelina-tsuboi/Hexabin/blob/master/LICENSE) for details.
+
+----------------------------
+###### [CursorPop](angelina-tsuboi.github.io/CursorPop) is maintained by [angelina-tsuboi](https://github.com/angelina-tsuboi).
