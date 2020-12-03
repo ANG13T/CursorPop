@@ -2,6 +2,10 @@
 
 A simple, lightweight JS library for making custom cursor particles.
 
+![GIF 1](https://github.com/angelina-tsuboi/CursorPop/blob/master/images/captured.gif)
+![GIF 2](https://github.com/angelina-tsuboi/CursorPop/blob/master/images/captured%20(1).gif)
+![GIF 3](https://github.com/angelina-tsuboi/CursorPop/blob/master/images/captured%20(2).gif)
+
 ## Website
 
 [angelina-tsuboi.github.io/CursorPop](http://www.easyelementfinder.com/CursorPop/)
