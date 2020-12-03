@@ -2,7 +2,37 @@
 
 A simple, lightweight JS library for making custom cursor particles.
 
+## Website
+
+[angelina-tsuboi.github.io/CursorPop](http://www.easyelementfinder.com/CursorPop/)
+
+## Installation
+
+```
+npm i cursorpop
+```
+
 ## Setup
+
+Example HTML template
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Template</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Testing CursorPop</h1>
+    <script src="./node_modules/cursorpop/cursorpop.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+JS setup
 
 ```
 let cursorPop = cursorpop();
@@ -66,3 +96,9 @@ Please have a look at the [contribution guidelines](CONTRIBUTE.md) before submit
 ## Questions?
 
 Feel free to email us any questions! Our contact info is on the CursorPop website.
+
+## License
+This project is licensed under [MIT](https://opensource.org/licenses/MIT). Please read the [LICENSE](https://github.com/angelina-tsuboi/CursorPop/blob/master/LICENSE.md) for details.
+
+----------------------------
+###### [CursorPop](http://www.easyelementfinder.com/CursorPop/) is maintained by [angelina-tsuboi](https://github.com/angelina-tsuboi).
