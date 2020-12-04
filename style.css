@@ -32,16 +32,6 @@ h1{
     position: absolute; 
 }
 
-@keyframes pop {
-  from {
-    opacity: 0;
-  }
-  to {
-    top: 55%;
-    left: 50%;
-    opacity: 1;
-  }
-}
 
 .color-button{
   height: 32px!important;

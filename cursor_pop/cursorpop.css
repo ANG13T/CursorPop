@@ -1,0 +1,10 @@
+@keyframes pop {
+  from {
+    opacity: 0;
+  }
+  to {
+    top: 55%;
+    left: 50%;
+    opacity: 1;
+  }
+}

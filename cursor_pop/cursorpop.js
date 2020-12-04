@@ -7,31 +7,6 @@ function cursorpop(){
     if (!(this instanceof cursorpop)) return new cursorpop();
 
     this._body = body = typeof body === 'string' ? document.getElementsByTagName(body)[0] : body;
-
-    let style = document.createElement('style');
-
-    // let particleAnimation = [
-    //    {
-    //     opacity: 0
-    //    },
-    //    {
-    //     top: '55%',
-    //     left: '50%',
-    //     opacity: 1
-    //   }
-    // ]
-
-    style.textContent = `@keyframes pop {
-        from {
-          opacity: 0;
-        }
-        to {
-          top: 55%;
-          left: 50%;
-          opacity: 1;
-        }
-      }`;
-
     this._width = body.width;
     this._height = body.height;
 
