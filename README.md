@@ -16,9 +16,17 @@ A simple, lightweight JS library for making custom cursor particles.
 npm i cursorpop
 ```
 
+## CDN
+Add to your HTML:
+
+```
+<link href="https://unpkg.com/cursorpop@1.0.5/cursorpop.css" rel="stylesheet">
+<script src="https://unpkg.com/cursorpop@1.0.5/cursorpop.js"></script>
+```
+
 ## Setup
 
-Example HTML template
+Example HTML with NPM installation template
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -26,16 +34,42 @@ Example HTML template
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Template</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./node_modules/cursorpop/cursorpop.css">
+    <style>.main{width: 100vw; height: 100vh;}</style>
 </head>
 <body>
 
-    <h1>Testing CursorPop</h1>
+    <div class="main">
+        <h1>Testing CursorPop</h1>
+    </div>
     <script src="./node_modules/cursorpop/cursorpop.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
 ```
+
+Example HTML with CDN template
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Template</title>
+    <style>.main{width: 100vw; height: 100vh;}</style>
+    <link href="https://unpkg.com/cursorpop@1.0.5/cursorpop.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main">
+        <h1>Testing CursorPop</h1>
+    </div>
+    <script src="https://unpkg.com/cursorpop@1.0.5/cursorpop.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
 JS setup
 
 ```
