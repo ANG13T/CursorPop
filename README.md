@@ -8,7 +8,7 @@ A simple, lightweight JS library for making custom cursor particles.
 
 ## Website
 
-[angelina-tsuboi.github.io/CursorPop](http://www.easyelementfinder.com/CursorPop/)
+[angelina-tsuboi.github.io/CursorPop](https://github.com/angelina-tsuboi/CursorPop)
 
 ## Installation
 
@@ -139,4 +139,4 @@ Feel free to email us any questions! Our contact info is on the CursorPop websit
 This project is licensed under [MIT](https://opensource.org/licenses/MIT). Please read the [LICENSE](https://github.com/angelina-tsuboi/CursorPop/blob/master/LICENSE.md) for details.
 
 ----------------------------
-###### [CursorPop](http://www.easyelementfinder.com/CursorPop/) is maintained by [angelina-tsuboi](https://github.com/angelina-tsuboi).
+###### [CursorPop](https://github.com/angelina-tsuboi/CursorPop) is maintained by [angelina-tsuboi](https://github.com/angelina-tsuboi).
